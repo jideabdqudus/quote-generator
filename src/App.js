@@ -3,17 +3,24 @@ import "./App.css";
 import HeaderCard from "./component/Header/HeaderCard";
 import BodyCard from "./component/Body/BodyCard";
 import BodyPanel from "./component/Panel/BodyPanel";
+import axios from "axios";
 
 class App extends Component {
+
   state = {
-    apis: [
-      {
-        quote: "When I look at people I don't see colors; I just see crackpot religions.",
-        image: "https://cdn.glitch.com/3c3ffadc-3406-4440-bb95-d40ec8fcde72%2FChiefWiggum.png?1497567511716",
-        character: "Chief Wiggum",
-      },
-    ],
+    apis: [],
+    loading: false
   };
+
+  async componentDidMount() {
+    this.setState({loading: true})
+    
+    const res = await axios.get("https://thesimpsonsquoteapi.glitch.me/quotes?count=10")
+      
+    this.setState({apis:[res.data], loading:false})
+
+    console.log(res.data)
+  }
 
   render() {
     const { apis } = this.state;

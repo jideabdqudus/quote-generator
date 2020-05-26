@@ -24,7 +24,7 @@ export class BodyCard extends Component {
               top
               width="100%"
               src="https://cdn.glitch.com/3c3ffadc-3406-4440-bb95-d40ec8fcde72%2FChiefWiggum.png?1497567511716"
-              alt="Character Name"
+              alt="Character Image"
               style={{ maxHeight:"300px", maxWidth:"200px" }}
             />
 

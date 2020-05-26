@@ -1,13 +1,18 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import {Container, Col} from "reactstrap"
 
 export class BodyPanel extends Component {
 
     render() {
         return (
-            <div>
-                <h3>Body BodyPanel</h3>
-            </div>
+            <Container>
+                <div className="col-md-6">
+                    <Col sm={6}>
+                    
+                    </Col>
+                </div>
+            </Container>
         )
     }
 }

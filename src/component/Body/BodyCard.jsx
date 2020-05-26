@@ -9,39 +9,32 @@ import {
   CardBody,
   CardTitle,
   CardText,
+  CardImg,
+  Col,
 } from "reactstrap";
+import Simp from "./../Header/simp.png";
 
 export class BodyCard extends Component {
   render() {
     return (
       <Container>
-        <div>
-          <Card>
-            <CardHeader>Header</CardHeader>
+        <Col className="col-md-6" sm={6}>
+          <Card sm={6}>
+            <CardImg top width="100%" src={Simp} alt="Character Name" />
+            {this.props.apis.map((api) => (
+              <CardHeader tag="h3">{api.character}</CardHeader>
+            ))}
             <CardBody>
-              <CardTitle>Special Title Treatment</CardTitle>
-              <CardText>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </CardText>
-              <Button>Go somewhere</Button>
+              {this.props.apis.map((api) => (
+                <CardText>{api.quote}</CardText>
+              ))}
             </CardBody>
-            <CardFooter>Footer</CardFooter>
+            <CardFooter className="text-muted">
+              {" "}
+              <Button>Another Quote</Button>
+            </CardFooter>
           </Card>
-
-          <Card>
-            <CardHeader tag="h3">Featured</CardHeader>
-            <CardBody>
-              <CardTitle>Special Title Treatment</CardTitle>
-              <CardText>
-                With supporting text below as a natural lead-in to additional
-                content.
-              </CardText>
-              <Button>Go somewhere</Button>
-            </CardBody>
-            <CardFooter className="text-muted">Footer</CardFooter>
-          </Card>
-        </div>
+        </Col>
       </Container>
     );
   }

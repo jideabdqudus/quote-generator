@@ -16,4 +16,8 @@ const HeaderCard = () => {
   );
 };
 
+HeaderCard.propTypes={
+   
+}
+
 export default HeaderCard;

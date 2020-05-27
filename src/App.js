@@ -6,28 +6,27 @@ import BodyPanel from "./component/Panel/BodyPanel";
 import axios from "axios";
 
 class App extends Component {
-  state = {apis:[]};
+  state = { apis: [], loading: false };
 
   async componentDidMount() {
-    const res = await axios.get(
-      "https://thesimpsonsquoteapi.glitch.me/quotes"
-    );
 
-    this.setState({ apis: res.data });
+    this.setState({loading: true})
+
+    const res = await axios.get("https://thesimpsonsquoteapi.glitch.me/quotes");
+
+    this.setState({ apis: res.data, loading: false });
 
     console.log(res.data);
-    console.log(this.state.apis);
+  }
+
+  if(loading){
+    return (<h1>Loading...</h1>)
   }
 
   render() {
     const { apis } = this.state;
     return (
       <div className="App container">
-        {apis.map((api) => (
-          <h1>
-            <i>" {api.quote} "</i>
-          </h1>
-        ))}
         <HeaderCard />
         <BodyCard apis={apis} />
         <BodyPanel />

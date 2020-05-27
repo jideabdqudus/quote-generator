@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
+
 import {Container, Col} from "reactstrap"
 
 export class BodyPanel extends Component {

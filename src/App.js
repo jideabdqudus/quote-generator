@@ -19,9 +19,7 @@ class App extends Component {
     console.log(res.data);
   }
 
-  if(loading){
-    return (<h1>Loading...</h1>)
-  }
+
 
   render() {
     const { apis } = this.state;

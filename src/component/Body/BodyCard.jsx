@@ -28,15 +28,13 @@ export class BodyCard extends Component {
               style={{ maxHeight:"300px", maxWidth:"200px" }}
             />
 
-            {this.props.apis.map((api) => (
-              <CardHeader tag="h3">{api.character}</CardHeader>
-            ))}
+              <CardHeader tag="h3">api.character</CardHeader>
+           
             <CardBody>
-              {this.props.apis.map((api) => (
                 <CardText>
-                  <i>" {api.quote} "</i>
+               Text Quote
                 </CardText>
-              ))}
+             
             </CardBody>
             <CardFooter className="text-muted">
               {" "}

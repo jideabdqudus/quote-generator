@@ -8,8 +8,7 @@ import axios from "axios";
 class App extends Component {
 
   state = {
-    apis: [],
-    loading: false
+    
   };
 
   async componentDidMount() {
@@ -20,12 +19,14 @@ class App extends Component {
     this.setState({apis:[res.data], loading:false})
 
     console.log(res.data)
+    console.log(this.state.apis)
   }
 
   render() {
     const { apis } = this.state;
     return (
       <div className="App container">
+      
         <HeaderCard />
         <BodyCard apis={apis} />
         <BodyPanel />

@@ -6,20 +6,14 @@ import BodyPanel from "./component/Panel/BodyPanel";
 import axios from "axios";
 
 class App extends Component {
-  state = { apis: [], loading: false };
+  state = { apis: []};
 
   async componentDidMount() {
-
-    this.setState({loading: true})
-
+    
     const res = await axios.get("https://thesimpsonsquoteapi.glitch.me/quotes");
 
-    this.setState({ apis: res.data, loading: false });
-
-    console.log(res.data);
+    this.setState({ apis: res.data});
   }
-
-
 
   render() {
     const { apis } = this.state;

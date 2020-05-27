@@ -10,10 +10,10 @@ class App extends Component {
 
   async componentDidMount() {
     const res = await axios.get(
-      "https://thesimpsonsquoteapi.glitch.me/quotes?count=10"
+      "https://thesimpsonsquoteapi.glitch.me/quotes"
     );
 
-    this.setState({ apis: [res.data] });
+    this.setState({ apis: res.data });
 
     console.log(res.data);
     console.log(this.state.apis);

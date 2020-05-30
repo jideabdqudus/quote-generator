@@ -1,34 +1,29 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import "./App.css";
 import HeaderCard from "./component/Header/HeaderCard";
 import BodyCard from "./component/Body/BodyCard";
 import BodyPanel from "./component/Panel/BodyPanel";
 import axios from "axios";
 
-const App =()=> {
-  const [apis, setApis] = useState([])
+const App = () => {
+  const [apis, setApis] = useState([]);
 
-  const useEffect(() => {
+  useEffect( () => {
+    const fetchApi = async ()=>{
     const res = await axios.get("https://thesimpsonsquoteapi.glitch.me/quotes");
-    setApis(res.data)
-    //esliin
-  }, [])
+    setApis(res.data);
+    //eslint-disable-next-line
+  };
+  fetchApi()
+}, []);
 
-   const componentDidMount=(async)=> {
-    
-
-  }
-
-  
-    const { apis } = this.state;
-    return (
-      <div className="App container">
-        <HeaderCard />
-        <BodyCard apis={apis} />
-        <BodyPanel />
-      </div>
-    );
-  }
-
+  return (
+    <div className="App container">
+      <HeaderCard />
+      <BodyCard apis={apis} />
+      <BodyPanel />
+    </div>
+  );
+};
 
 export default App;

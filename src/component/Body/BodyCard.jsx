@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 import {
   Card,
@@ -13,17 +13,18 @@ import {
   Col,
 } from "reactstrap";
 
-export class BodyCard extends Component {
-  buttonClicked(location) {
+const BodyCard =({apis})=> {
+  
+  const buttonClicked=(location)=> {
     window.location.reload(true);
   }
-  render() {
+
     return (
       <Container className="col-md-12">
         <Row>
           <Col className="col-md-6" sm={6}>
             <Card sm={6}>
-              {this.props.apis.map((api) => (
+              {apis.map((api) => (
                 <CardImg
                   top
                   width="100%"
@@ -34,13 +35,13 @@ export class BodyCard extends Component {
                 />
               ))}
 
-              {this.props.apis.map((api) => (
+              {apis.map((api) => (
                 <CardHeader key={Date.now()} tag="h3">
                   {api.character}
                 </CardHeader>
               ))}
               <CardBody>
-                {this.props.apis.map((api) => (
+                {apis.map((api) => (
                   <CardText key={Date.now()}>
                     <i>" {api.quote} "</i>
                   </CardText>
@@ -48,7 +49,7 @@ export class BodyCard extends Component {
               </CardBody>
               <CardFooter className="text-muted">
                 {" "}
-                <Button onClick={this.buttonClicked}>Another Quote</Button>
+                <Button onClick={buttonClicked}>Another Quote</Button>
               </CardFooter>
             </Card>
           </Col>
@@ -81,6 +82,5 @@ export class BodyCard extends Component {
       </Container>
     );
   }
-}
 
 export default BodyCard;

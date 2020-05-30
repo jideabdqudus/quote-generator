@@ -1,21 +1,25 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import "./App.css";
 import HeaderCard from "./component/Header/HeaderCard";
 import BodyCard from "./component/Body/BodyCard";
 import BodyPanel from "./component/Panel/BodyPanel";
 import axios from "axios";
 
-class App extends Component {
-  state = { apis: []};
+const App =()=> {
+  const [apis, setApis] = useState([])
 
-  async componentDidMount() {
-    
+  const useEffect(() => {
     const res = await axios.get("https://thesimpsonsquoteapi.glitch.me/quotes");
+    setApis(res.data)
+    //esliin
+  }, [])
 
-    this.setState({ apis: res.data});
+   const componentDidMount=(async)=> {
+    
+
   }
 
-  render() {
+  
     const { apis } = this.state;
     return (
       <div className="App container">
@@ -25,6 +29,6 @@ class App extends Component {
       </div>
     );
   }
-}
+
 
 export default App;
